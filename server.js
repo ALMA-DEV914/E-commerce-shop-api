@@ -14,6 +14,11 @@ connectDatabase();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials": "true");
+  res.send("API is running);
+}
 // API
 app.use("/api/import", ImportData);
 app.use("/api/products", productRoute);
